@@ -1,0 +1,14 @@
+<div class="grid-container top_10">
+  <div class="grid-y centered-div">
+    <span id="hash"></span>
+    <%= simple_form_for :xml_file, url: create_path do |f| %>
+      <div  class="cell">
+        <%= f.label 'Choose a XML file' %>
+        <%= f.file_field :xml %>
+      </div>
+      <div class="cell">
+        <%= f.submit 'Submit', class: 'button small' %>
+      </div>
+    <% end %>
+  </div>
+</div>
