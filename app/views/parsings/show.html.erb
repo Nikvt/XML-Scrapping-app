@@ -1,0 +1,5 @@
+<div class="grid-container top_10">
+  <div class="grid-y centered-div">
+    <%= render partial: "partials/hash_#{Apartment::Tenant.current}", locals: { hash: @hash } %>
+  </div>
+</div>

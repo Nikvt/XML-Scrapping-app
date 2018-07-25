@@ -1,6 +1,7 @@
-class ArticlesController < ApplicationController
+class ParsingsController < ApplicationController
 
-  def home
+  def index
+    @xml_hashes = XmlHash.all
   end
 
   def create
@@ -9,9 +10,14 @@ class ArticlesController < ApplicationController
     result = ParsingSelector.call(data: file_nokogiri, file_name: file_name)
 
     if result.success?
-      render partial: "partials/hash_#{Apartment::Tenant.current}", locals: { hash: result.data }
+      puts result.data
+      redirect_to parsing_path(result.data)
     else
       redirect_to root_path
     end
+  end
+
+  def show
+    @hash = XmlHash.find(params[:id]).tenant_hash
   end
 end

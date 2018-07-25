@@ -9,10 +9,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   constraints SubdomainConstraint do
-    root to: 'articles#home'
+    root to: 'parsings#index'
 
-    get 'home', to: 'articles#home'
-
-    post 'create', to: 'articles#create'
+    resources :parsings, only: [:index, :create, :show]
   end
 end

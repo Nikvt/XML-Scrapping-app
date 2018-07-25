@@ -13,7 +13,6 @@ class XmlToHashRecovr
         data[collection.name.to_sym][(object.name + '_' + attributes[:id]).to_sym] = attributes
       end
     end
-    context.data = data
-    XmlHash.create(file_name: context.file_name, tenant_hash: data)
+    context.data = XmlHash.create(file_name: context.file_name, tenant_hash: data)
   end
 end

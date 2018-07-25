@@ -21,22 +21,22 @@
 
 $(function(){ $(document).foundation(); });
 
-$(function(){
-    $(".simple_form").on("submit", function(event){
-        event.preventDefault();
-
-        var formData = new FormData(this);
-
-        $.ajax({
-            type: "POST",
-            url: this.action,
-            data: formData,
-            success: function(data) {
-                $('#hash').append(data);
-            },
-            cache: false,
-            contentType: false,
-            processData: false
-        });
-    });
-})
+// $(function(){
+//     $(".simple_form").on("submit", function(event){
+//         event.preventDefault();
+//
+//         var formData = new FormData(this);
+//
+//         $.ajax({
+//             type: "POST",
+//             url: this.action,
+//             data: formData,
+//             success: function(data) {
+//                 $('#hash').append(data);
+//             },
+//             cache: false,
+//             contentType: false,
+//             processData: false
+//         });
+//     });
+// })
