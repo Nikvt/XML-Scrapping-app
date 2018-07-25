@@ -1,13 +1,19 @@
 <div class="grid-container top_10">
   <div class="grid-y centered-div">
+    <% @xml_hashes.each do |xml_hash| %>
+      <div class="cell">
+        <% link = xml_hash.id.to_s + ': ' + xml_hash.file_name + ' (' + xml_hash.updated_at.to_s + ')' %>
+        <%= link_to link, parsing_path(xml_hash)%>
+      </div>
+    <% end %>
     <%= simple_form_for :xml_file, url: parsings_path do |f| %>
-      <div  class="cell">
-        <%= f.label 'Choose a XML file' %>
+      <div  class="cell top_10">
+        <%= f.label 'Add a XML file' %>
         <%= f.file_field :xml %>
       </div>
       <div class="cell">
-        <%= f.submit 'Submit', class: 'button small' %>
+        <%= f.submit 'Add', class: 'button small' %>
       </div>
     <% end %>
   </div>
-</div>
+</div>git

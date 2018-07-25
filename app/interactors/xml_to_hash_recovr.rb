@@ -4,15 +4,15 @@ class XmlToHashRecovr
   def call
     data = {}
     context.data.xpath('//recovr').children.each do |collection|
-      data[collection.name.to_sym] = {}
+      data[collection.name] = {}
       collection.children.each do |object|
         attributes = {}
         object.children.each do |attribute|
-          attributes[attribute.name.to_sym] = attribute.child.inner_text
+          attributes[attribute.name] = attribute.child.inner_text
         end
-        data[collection.name.to_sym][(object.name + '_' + attributes[:id]).to_sym] = attributes
+        data[collection.name][object.name + '_' + attributes['id']] = attributes
       end
     end
-    context.data = XmlHash.create(file_name: context.file_name, tenant_hash: data)
+    context.data = XmlHash.create(file_name: context.file_name, tenant_hash: data.to_json)
   end
 end

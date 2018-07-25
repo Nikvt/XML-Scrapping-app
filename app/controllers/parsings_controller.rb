@@ -19,5 +19,6 @@ class ParsingsController < ApplicationController
 
   def show
     @hash = XmlHash.find(params[:id]).tenant_hash
+    @hash = JSON.parse(@hash)
   end
 end

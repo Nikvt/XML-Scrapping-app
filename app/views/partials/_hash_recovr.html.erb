@@ -2,16 +2,16 @@
   <li>
     <h4>Articles</h4>
     <ol>
-      <% hash[:articles].each do |article| %>
+      <% hash['articles'].each do |article| %>
         <li>
           <%= article[0].capitalize %>
           <ol type="a">
-            <li>Title: <%= article[1][:title] %></li>
-            <li>Description: <%= article[1][:description] %></li>
+            <li>Title: <%= article[1]['title'] %></li>
+            <li>Description: <%= article[1]['description'] %></li>
             <li>
-              Author: <% hash[:authors].each do |author| %>
-                <% if author[1][:id] == article[1][:author_id] %>
-                  <%= author[1][:FirstName] + ' ' + author[1][:LastName] %>
+              Author: <% hash['authors'].each do |author| %>
+                <% if author[1]['id'] == article[1]['author_id'] %>
+                  <%= author[1]['FirstName'] + ' ' + author[1]['LastName'] %>
                 <% end %>
               <% end %>
             </li>
@@ -22,15 +22,15 @@
     <br>
     <h4>Authors</h4>
     <ol>
-      <% hash[:authors].each do |author| %>
+      <% hash['authors'].each do |author| %>
         <li>
           <%= author[0].capitalize %>
           <ol type="a">
-            <li>First Name: <%= author[1][:FirstName] %></li>
-            <li>Last Name: <%= author[1][:LastName] %></li>
+            <li>First Name: <%= author[1]['FirstName'] %></li>
+            <li>Last Name: <%= author[1]['LastName'] %></li>
             <li>
               Articles count:
-              <%= hash[:articles].count {|article| article[1][:author_id] == author[1][:id]} %>
+              <%= hash['articles'].count {|article| article[1]['author_id'] == author[1]['id']} %>
             </li>
           </ol>
         </li>
