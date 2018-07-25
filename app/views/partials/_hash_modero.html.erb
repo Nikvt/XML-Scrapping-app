@@ -1,0 +1,20 @@
+<ul style="list-style-type:none">
+  <li>sid: <%= hash[:sid] %></li>
+  <li>date: <%= hash[:datetime] %></li>
+  <li>
+    <h4>Payments</h4>
+    <ol>
+      <% hash[:payments].each do |payment| %>
+        <li>
+          <%= payment[0].capitalize %>
+          <ul>
+            <li>Reference: <%= payment[1][:reference] %></li>
+            <li>Invoice number: <%= payment[1][:invoicenmbr] %></li>
+            <li>Date: <%= payment[1][:date] %></li>
+            <li>Amount: <%= payment[1][:amount] %></li>
+          </ul>
+        </li>
+      <% end %>
+    </ol>
+  </li>
+</ul>

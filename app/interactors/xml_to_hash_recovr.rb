@@ -1,4 +1,4 @@
-class XmlToHash
+class XmlToHashRecovr
   include Interactor
 
   def call
@@ -14,5 +14,6 @@ class XmlToHash
       end
     end
     context.data = data
+    XmlHash.create(file_name: context.file_name, tenant_hash: data)
   end
 end
