@@ -1,4 +1,5 @@
 require_relative 'boot'
+require 'apartment/elevators/subdomain'
 
 require "rails"
 # Pick the frameworks you want:
@@ -29,5 +30,7 @@ module XMLScrapperApartment
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.middleware.use Apartment::Elevators::Subdomain
+
   end
 end
