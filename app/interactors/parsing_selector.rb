@@ -2,7 +2,11 @@ class ParsingSelector
   include Interactor
 
   def call
-    XmlToHashModero.call(context) if Apartment::Tenant.current == 'modero'
-    XmlToHashRecovr.call(context) if Apartment::Tenant.current == 'recovr'
+    case Apartment::Tenant.current
+    when 'modero'
+      XmlToHashModero.call(context)
+    when 'recovr'
+      XmlToHashRecovr.call(context)
+    end
   end
 end
